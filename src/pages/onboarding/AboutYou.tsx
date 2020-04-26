@@ -60,8 +60,6 @@ const AboutYou = () => {
         responseObj
       );
       setResponse(registerResponse);
-      console.log(response);
-      console.log(registerResponse);
       setButtonConfirm(true);
     } catch (e) {
       console.error(e);
