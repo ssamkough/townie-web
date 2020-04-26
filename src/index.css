@@ -1,13 +1,80 @@
-body {
+/* imports */
+@import "~antd/dist/antd.css";
+
+@font-face {
+  font-family: "Gamja Flower";
+  src: local("Gamja Flower"),
+    url(./fonts/GamjaFlower-Regular.ttf) format("truetype");
+}
+
+/* utilities */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  font-family: Gamja Flower;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* classes */
+.navbar {
+  text-align: center;
+}
+
+.navbar-icon {
+  font-size: 20px;
+  height: 40px;
+}
+
+.navbar-icon svg {
+  margin-right: 80px;
+  font-size: 30px;
+}
+
+.footie-header {
+  background-color: transparent;
+  font-size: 40px;
+}
+
+.page-layout {
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.getting-started-layout {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.getting-started-content {
+  align-items: center;
+}
+
+.getting-started-tagline {
+  font-style: italic;
+}
+
+.getting-started-button {
+  margin: 10px;
+}
+
+.login-modal {
+  border: 0px solid transparent;
+}
+
+.about-you-header {
+  background-color: #ffffff;
+  margin-top: 10px;
+  border-bottom: 1px solid black;
+}
+
+.about-you-content {
+  padding: 0 50px;
+  margin-top: 50px;
+}
+
+.board-header {
+  background-color: #ffffff;
+  margin-top: 10px;
 }
