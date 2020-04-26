@@ -1,8 +1,9 @@
 import React from "react";
 import { Layout } from "antd";
 
-import Navbar from "../components/Navbar";
-import Footie from "../components/Footie";
+import Navbar from "./../components/Navbar";
+import NewsPost from "./../components/NewsPost";
+import Footie from "./../components/Footie";
 
 const News = () => {
   const { Header, Content, Footer } = Layout;
@@ -12,7 +13,15 @@ const News = () => {
       <Header className="board-header">
         <Navbar state={"news"} />
       </Header>
-      <Content className="about-you-content"></Content>
+      <Content className="about-you-content">
+        <NewsPost />
+        <br />
+        <NewsPost />
+        <br />
+        <NewsPost />
+        <br />
+        <NewsPost />
+      </Content>
       <Footer>
         <Footie></Footie>
       </Footer>
