@@ -75,7 +75,7 @@ const AboutYou = () => {
   return (
     <Layout className="page-layout about-you-layout">
       <Header className="about-you-header">
-        <Title>About You</Title>
+        <Title className="onboarding-title">About You</Title>
       </Header>
       <Content className="about-you-content">
         <Row>

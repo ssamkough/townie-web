@@ -57,30 +57,34 @@ const ConfirmLocation = () => {
   const { Title } = Typography;
 
   return (
-    <Layout className="page-layout about-you-layout">
+    <Layout className="page-layout">
       <Header className="about-you-header">
-        <Title>Is This Information Accurate?</Title>
+        <Title className="onboarding-title">
+          Is This Information Accurate?
+        </Title>
       </Header>
-      <Content className="about-you-content">
-        <Row>
-          <Col>
-            <Title>State:</Title>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Title>Town:</Title>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Button onClick={loginModal}>Yes</Button>
-          </Col>
-          <Col>
-            <Button>No</Button>
-          </Col>
-        </Row>
-      </Content>
+      <Layout className="page-layout getting-started-layout">
+        <Content className="confirm-location-content">
+          <Row>
+            <Col>
+              <Title className="accurate-text">State: New York</Title>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Title className="accurate-text">Town: New York City</Title>
+            </Col>
+          </Row>
+          <Row className="confirm-location-yes-no">
+            <Col>
+              <Button onClick={loginModal}>Yes</Button>
+            </Col>
+            <Col>
+              <Button>No</Button>
+            </Col>
+          </Row>
+        </Content>
+      </Layout>
       <Footer>
         <Col span={6} offset={6}>
           <Button>
