@@ -4,7 +4,7 @@
 @font-face {
   font-family: "Gamja Flower";
   src: local("Gamja Flower"),
-    url(./fonts/GamjaFlower-Regular.ttf) format("truetype");
+    url(./assets/fonts/GamjaFlower-Regular.ttf) format("truetype");
 }
 
 /* utilities */
@@ -41,6 +41,18 @@
   background-color: #ffffff;
 }
 
+.gamja-flower-fixed-text {
+  font-size: 25px;
+}
+
+.townie-title {
+  font-size: 80px !important;
+}
+
+.onboarding-title {
+  font-size: 50px !important;
+}
+
 .getting-started-layout {
   text-align: center;
   justify-content: center;
@@ -52,6 +64,7 @@
 }
 
 .getting-started-tagline {
+  font-size: 40px !important;
   font-style: italic;
 }
 
@@ -74,7 +87,46 @@
   margin-top: 50px;
 }
 
+.confirm-location-content {
+  margin-top: 250px;
+}
+
+.confirm-location-yes-no {
+  margin-left: 80px;
+}
+
+.accurate-text {
+  font-size: 40px !important;
+}
+
 .board-header {
   background-color: #ffffff;
   margin-top: 10px;
+}
+
+.city-template {
+  max-height: 55vh;
+}
+
+.news-post {
+  height: 15vh;
+  font-size: 25px;
+}
+
+.news-post-image {
+  height: 40%;
+}
+
+.board-post {
+  height: 7vh;
+  font-size: 20px;
+}
+
+.add-board-post-icon-wrapper {
+  float: right;
+  font-size: 30px;
+}
+
+.board-post-disclaimer {
+  border: 2px solid black;
 }
