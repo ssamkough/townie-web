@@ -21,6 +21,7 @@ const layout = {
 const AboutYou = () => {
   const [genderValue, setGenderValue] = useState(1);
   const [userObj, setUserObj] = useState({});
+  const [response, setResponse] = useState({});
 
   const genderOnChange = (e: any) => {
     return setGenderValue(e.target.value);
@@ -47,16 +48,17 @@ const AboutYou = () => {
       responseObj.gender = "Male";
     }
 
-    console.log(responseObj);
-
+    let registerResponse: any = {};
     try {
-      const response = await axios.post(
+      registerResponse = await axios.post(
         "http://localhost:5000/register",
         responseObj
       );
       console.log(response);
     } catch (e) {
       console.error(e);
+    } finally {
+      setResponse(registerResponse.data);
     }
   };
 
@@ -106,7 +108,7 @@ const AboutYou = () => {
                   },
                 ]}
               >
-                <Input onChange={addFormItem("first_name")} />
+                <Input onChange={addFormItem("firstName")} />
               </Form.Item>
 
               <Form.Item
@@ -116,7 +118,7 @@ const AboutYou = () => {
                   { required: true, message: "Please input your last name!" },
                 ]}
               >
-                <Input onChange={addFormItem("last_name")} />
+                <Input onChange={addFormItem("lastName")} />
               </Form.Item>
 
               <Form.Item
@@ -139,7 +141,7 @@ const AboutYou = () => {
                   },
                 ]}
               >
-                <Input onChange={addFormItem("home_address")} />
+                <Input onChange={addFormItem("address")} />
               </Form.Item>
 
               <Form.Item
@@ -152,7 +154,7 @@ const AboutYou = () => {
                   },
                 ]}
               >
-                <Input onChange={addFormItem("zip_code")} />
+                <Input onChange={addFormItem("zipcode")} />
               </Form.Item>
             </Form>
           </Col>
@@ -228,7 +230,9 @@ const AboutYou = () => {
           </Col>
           <Col span={6} offset={6}>
             <Button onClick={postUserAttributes}>
-              <Link to="/confirm-location">Next</Link>
+              <Link to={{ pathname: "/confirm-location", state: response }}>
+                Next
+              </Link>
             </Button>
           </Col>
         </Row>

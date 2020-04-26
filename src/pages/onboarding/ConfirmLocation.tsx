@@ -1,44 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Layout, Button, Modal, Typography, Row, Col } from "antd";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
-const useFetch = (initialData: string[], initialUrl: string) => {
-  const [user, setPosts] = useState(initialData);
-  const [url] = useState(initialUrl);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsError(false);
-      setIsLoading(true);
-
-      try {
-        const response = await axios(url);
-        const postList = response.data.data.reverse();
-        setPosts(postList);
-
-        if (postList.length > 0) {
-          setIsLoading(false);
-        }
-      } catch (error) {
-        setIsError(error);
-      }
-    };
-
-    fetchData();
-  }, [url]);
-
-  return [{ user, isLoading, isError }];
-};
-
-const ConfirmLocation = () => {
-  const results: string[] = [];
-  const url: string = "http://localhost:5000/user";
-
-  const [{ user, isLoading, isError }] = useFetch(results, url);
-
+const ConfirmLocation = (response: any) => {
+  console.log(response);
   const [visible, setModalVisible] = useState(false);
 
   const loginModal = () => {
@@ -67,12 +32,12 @@ const ConfirmLocation = () => {
         <Content className="confirm-location-content">
           <Row>
             <Col>
-              <Title className="accurate-text">State: New York</Title>
+              <Title className="accurate-text">State: {response.state}</Title>
             </Col>
           </Row>
           <Row>
             <Col>
-              <Title className="accurate-text">Town: New York City</Title>
+              <Title className="accurate-text">Town: {response.town}</Title>
             </Col>
           </Row>
           <Row className="confirm-location-yes-no">
