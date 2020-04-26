@@ -14,30 +14,14 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
-          <GettingStarted />
-        </Route>
-        <Route path="/about-you">
-          <AboutYou />
-        </Route>
-        <Route path="/confirm-location">
-          <ConfirmLocation />
-        </Route>
-        <Route path="/home">
-          <Home />
-        </Route>
-        <Route path="/news">
-          <News />
-        </Route>
-        <Route path="/board">
-          <Board />
-        </Route>
-        <Route path="/profile">
-          <Profile />
-        </Route>
-        <Route path="/add-board-post">
-          <AddBoardPost />
-        </Route>
+        <Route exact path="/" component={GettingStarted}></Route>
+        <Route path="/about-you" component={AboutYou}></Route>
+        <Route path="/confirm-location" component={ConfirmLocation}></Route>
+        <Route path="/home" component={Home}></Route>
+        <Route path="/news" component={News}></Route>
+        <Route path="/board" component={Board}></Route>
+        <Route path="/profile" component={Profile}></Route>
+        <Route path="/add-board-post" component={AddBoardPost}></Route>
       </Switch>
     </Router>
   );

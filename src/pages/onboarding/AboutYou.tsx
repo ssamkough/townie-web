@@ -9,7 +9,6 @@ import {
   DatePicker,
   Input,
   Radio,
-  notification,
 } from "antd";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -61,6 +60,8 @@ const AboutYou = () => {
         responseObj
       );
       setResponse(registerResponse);
+      console.log(response);
+      console.log(registerResponse);
       setButtonConfirm(true);
     } catch (e) {
       console.error(e);
