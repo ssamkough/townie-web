@@ -8,8 +8,9 @@ import Home from "./pages/Home";
 import News from "./pages/News";
 import Board from "./pages/Board";
 import Profile from "./pages/Profile";
+import AddBoardPost from "./pages/AddBoardPost";
 
-function App() {
+const App = () => {
   return (
     <Router>
       <Switch>
@@ -34,9 +35,12 @@ function App() {
         <Route path="/profile">
           <Profile />
         </Route>
+        <Route path="/add-board-post">
+          <AddBoardPost />
+        </Route>
       </Switch>
     </Router>
   );
-}
+};
 
 export default App;
