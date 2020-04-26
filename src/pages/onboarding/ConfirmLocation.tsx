@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Layout, Button, Modal, Typography, Row, Col } from "antd";
 import { Link } from "react-router-dom";
 
-const ConfirmLocation = (response: any) => {
-  console.log(response);
+const ConfirmLocation = (props: any) => {
+  console.log(props);
   const [visible, setModalVisible] = useState(false);
 
   const loginModal = () => {
@@ -32,12 +32,12 @@ const ConfirmLocation = (response: any) => {
         <Content className="confirm-location-content">
           <Row>
             <Col>
-              <Title className="accurate-text">State: {response.state}</Title>
+              <Title className="accurate-text">State:</Title>
             </Col>
           </Row>
           <Row>
             <Col>
-              <Title className="accurate-text">Town: {response.town}</Title>
+              <Title className="accurate-text">Town:</Title>
             </Col>
           </Row>
           <Row className="confirm-location-yes-no">

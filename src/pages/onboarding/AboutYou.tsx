@@ -9,6 +9,7 @@ import {
   DatePicker,
   Input,
   Radio,
+  notification,
 } from "antd";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -18,10 +19,15 @@ const layout = {
   wrapperCol: { span: 16 },
 };
 
+const tailLayout = {
+  wrapperCol: { offset: 8, span: 16 },
+};
+
 const AboutYou = () => {
   const [genderValue, setGenderValue] = useState(1);
   const [userObj, setUserObj] = useState({});
   const [response, setResponse] = useState({});
+  const [buttonConfirm, setButtonConfirm] = useState(false);
 
   const genderOnChange = (e: any) => {
     return setGenderValue(e.target.value);
@@ -35,6 +41,7 @@ const AboutYou = () => {
     console.log("Failed:", errorInfo);
   };
 
+  let registerResponse: any = {};
   const postUserAttributes = async (e: any) => {
     e.preventDefault();
 
@@ -48,27 +55,27 @@ const AboutYou = () => {
       responseObj.gender = "Male";
     }
 
-    let registerResponse: any = {};
     try {
       registerResponse = await axios.post(
         "http://localhost:5000/register",
         responseObj
       );
-      console.log(response);
+      setResponse(registerResponse);
+      setButtonConfirm(true);
     } catch (e) {
       console.error(e);
+      setButtonConfirm(false);
     } finally {
-      setResponse(registerResponse.data);
+      console.log(response);
+      console.log(registerResponse);
     }
   };
 
   const addFormItem = (prop: any) => (e: any) => {
-    console.log(userObj);
     return setUserObj({ ...userObj, [prop]: e.target.value });
   };
 
   const addDateItem = (date: any) => {
-    console.log(userObj);
     return setUserObj({ ...userObj, birthday: date._d });
   };
 
@@ -218,6 +225,28 @@ const AboutYou = () => {
                 <div></div>
               )}
             </Form>
+
+            <Form.Item {...tailLayout}>
+              <Button
+                type="primary"
+                onClick={postUserAttributes}
+                htmlType="submit"
+              >
+                Submit
+              </Button>
+            </Form.Item>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            {buttonConfirm === true ? (
+              <div>All information is appropriate.</div>
+            ) : (
+              <div>
+                Invalid information. Make sure to fulfill all required
+                information.
+              </div>
+            )}
           </Col>
         </Row>
       </Content>
@@ -229,10 +258,19 @@ const AboutYou = () => {
             </Button>
           </Col>
           <Col span={6} offset={6}>
-            <Button onClick={postUserAttributes}>
-              <Link to={{ pathname: "/confirm-location", state: response }}>
-                Next
-              </Link>
+            <Button>
+              {buttonConfirm === true ? (
+                <Link
+                  to={{
+                    pathname: "/confirm-location",
+                    state: registerResponse,
+                  }}
+                >
+                  Next
+                </Link>
+              ) : (
+                <div>Next</div>
+              )}
             </Button>
           </Col>
         </Row>
