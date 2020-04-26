@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./fonts/GamjaFlower-Regular.ttf";
+import "./assets/fonts/GamjaFlower-Regular.ttf";
 import "./index.css";
 import App from "./App";
 
