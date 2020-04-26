@@ -38,7 +38,7 @@ const GettingStarted = () => {
       <Row>
         <Col>
           <Content className="getting-started-content">
-            <Title>Townie</Title>
+            <Title className="townie-title">Townie</Title>
             <Title level={3} className="getting-started-tagline">
               welcome to your neighborhood
             </Title>
@@ -48,7 +48,10 @@ const GettingStarted = () => {
               </Button>
             </Link>
             <br />
-            <Button onClick={loginModal} className="login-modal">
+            <Button
+              onClick={loginModal}
+              className="login-modal gamja-flower-fixed-text"
+            >
               Have an account? Login here!
             </Button>
           </Content>
